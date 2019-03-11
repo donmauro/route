@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <div>
+    <h1>{{ customerName }}</h1>
+    <Menu></Menu>
+  <router-view></router-view>
+  <router-view name="b"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Menu from './views/Menu.vue'
+import 'semantic-ui-css/semantic.css'
 
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
+    Menu,
+  },
+  computed: {
+    customerName() {
+      return this.$store.state.customerName
+    }
   }
-}
+    
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    padding: 2em;
+  }
 </style>
